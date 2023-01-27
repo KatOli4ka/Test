@@ -12,9 +12,9 @@ import java.lang.reflect.Modifier;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UserTest {
-    private String login;
-    private String email;
-    private User user;
+//    private String login;
+//    private String email;
+//    private User user;
 
     @Test
     public void testConstructorWithArg() {
@@ -27,6 +27,7 @@ public class UserTest {
 
     @Test
     public void testConstructorWithoutArg() {
+        User user=new User();
         assertNull(user);
     }
 
