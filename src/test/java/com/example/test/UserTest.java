@@ -16,17 +16,12 @@ public class UserTest {
     private String email;
     private User user;
 
-    @BeforeEach
-    @Test
-    public void setUp() {
-        String login = "KatOli4ka";
-        String email = "KatOli4ka@mail.ru";
-        User user = new User(login, email);
-    }
 
     @Test
     public void testConstructorWithArg() {
-
+        String login = "KatOli4ka";
+        String email = "KatOli4ka@mail.ru";
+        User user = new User(login, email);
         assertEquals(login, user.getLogin());
         assertEquals(email, user.getEmail());
     }
@@ -38,6 +33,9 @@ public class UserTest {
 
     @Test
     public void testContainsEmailOtherSymbols() {
+        String login = "KatOli4ka";
+        String email = "KatOli4ka@mail.ru";
+        User user = new User(login, email);
         boolean check = false;
         if (email.contains("@") && email.contains(".")) {
             check = true;
@@ -47,6 +45,9 @@ public class UserTest {
 
     @Test
     public void testLoginDontEqualLogin() {
+        String login = "KatOli4ka";
+        String email = "KatOli4ka@mail.ru";
+        User user = new User(login, email);
         Assertions.assertNotEquals(login, email);
     }
 }
