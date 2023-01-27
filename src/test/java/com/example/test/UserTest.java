@@ -16,7 +16,6 @@ public class UserTest {
     private String email;
     private User user;
 
-
     @Test
     public void testConstructorWithArg() {
         String login = "KatOli4ka";
