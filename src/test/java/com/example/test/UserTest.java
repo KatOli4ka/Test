@@ -26,7 +26,6 @@ public class UserTest {
     public void testConstructorWithoutArg() {
         String login = null;
         String email = null;
-        User user = new User();
         assertNull(login);
         assertNull(email);
     }
