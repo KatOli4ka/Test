@@ -23,6 +23,7 @@ public class UserTest {
         String email = "KatOli4ka@mail.ru";
         User user = new User(login, email);
     }
+
     @Test
     public void testConstructorWithArg() {
 
@@ -30,8 +31,6 @@ public class UserTest {
         assertEquals(email, user.getEmail());
     }
 
-
-    @BeforeEach
     @Test
     public void testConstructorWithoutArg() {
         assertNull(user);
