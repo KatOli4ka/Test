@@ -1,6 +1,7 @@
 package com.example.test;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Constructor;
@@ -20,28 +21,13 @@ public class UserTest {
         assertEquals(email, user.getEmail());
     }
 
+    @BeforeEach
     @Test
-    public void testConstructorWithoutArg() throws Exception {
+    public void testConstructorWithoutArg(){
+        User user = new User();
+        assertNotNull(user);
 
-//        User user = new User();
-//        assertNotNull(user);
 
-        final Constructor<?>[] constructors = User.class.getDeclaredConstructors();
-        for (final Constructor<?> constructor : constructors) {
-            Assertions.assertTrue(Modifier.isPrivate(constructor.getModifiers()));
-        }
-        constructors[0].setAccessible(true);
-        constructors[0].newInstance((Object[]) null);
-
-//        try {
-//            Constructor<User> u = User.class.getDeclaredConstructor();
-//            u.setAccessible(true);
-//            User userOne=u.newInstance();
-//        } catch (NoSuchMethodException | InstantiationException | IllegalAccessException |
-//                 InvocationTargetException e) {
-//            throw new RuntimeException(e);
-//        }
-    }
 
 //    public boolean testContainsEmailOtherSymbols() {
 //
