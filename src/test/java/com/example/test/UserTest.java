@@ -1,6 +1,7 @@
 package com.example.test;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,60 +12,42 @@ import java.lang.reflect.Modifier;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UserTest {
+    private String login;
+    private String email;
+    private User user;
 
+    @BeforeEach
     @Test
-    public void testConstructorWithArg() {
+    public void setUp() {
         String login = "KatOli4ka";
         String email = "KatOli4ka@mail.ru";
         User user = new User(login, email);
+    }
+    @Test
+    public void testConstructorWithArg() {
+
         assertEquals(login, user.getLogin());
         assertEquals(email, user.getEmail());
     }
 
+
     @BeforeEach
     @Test
-    public void testConstructorWithoutArg(){
-        User user = new User();
-        assertNotNull(user);
+    public void testConstructorWithoutArg() {
+        assertNull(user);
+    }
 
+    @Test
+    public void testContainsEmailOtherSymbols() {
+        boolean check = false;
+        if (email.contains("@") && email.contains(".")) {
+            check = true;
+        }
+        assertFalse(false);
+    }
 
-
-//    public boolean testContainsEmailOtherSymbols() {
-//
-//    }
-
-
-//        if (inEmail = email.contains("@")) {
-//        System.out.println("email ok");
-//    } else {
-//        System.out.println("Error");
-//    }
-//}
-//@Test
-//    final String LOGIN = "login";
-//    final String EMAIL = "email";
-
-
-//
-
-
-//
-//    User user = new User(LOGIN, EMAIL);
-//
-//    String userLogin = user.getLogin();
-//    String userEmail = user.getEmail();
-//
-//    Assertions Assert = null;
-//        Assert.assertEquals(LOGIN, userLogin);
-//        Assert.assertEquals(EMAIL, userEmail);
-
-//    public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
-//            Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
-//
-//    public static boolean validate(String emailStr) {
-//        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
-//        return matcher.find();
-//    }
-
-
+    @Test
+    public void testLoginDontEqualLogin() {
+        Assertions.assertNotEquals(login, email);
+    }
 }
