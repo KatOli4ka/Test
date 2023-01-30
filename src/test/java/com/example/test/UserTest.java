@@ -18,10 +18,9 @@ public class UserTest {
 
     @Test
     public void testConstructorWithoutArg() {
-        String login = null;
-        String email = null;
-        assertNull(login);
-        assertNull(email);
+        User user = new User();
+        assertNull(user.getLogin());
+        assertNull(user.getEmail());
     }
 
     @Test
